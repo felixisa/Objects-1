@@ -10,6 +10,7 @@ public class myReverse {
 		return l;
 	}
 	
+	
 	// Purpose: to put list elements into a stack
 	public static <X> IStack<X> intoStack(IList<X> l, IStack<X> s){
 		if (l.isEmpty()){
@@ -17,6 +18,7 @@ public class myReverse {
 		}
 		else {
 			try {
+				System.out.println("intostack" + l.first()));
 				return intoStack(l.rest(), s.push(l.first()));
 			}
 			catch(Exception e) {
@@ -33,6 +35,7 @@ public class myReverse {
 		}
 		else {
 			try { 
+				System.out.println("intolist" + l.first()));
 				return intoList(s.pop(), (i - 1)).cons(s.top());
 			}
 			catch (Exception e) {
@@ -41,5 +44,13 @@ public class myReverse {
 			}
 		}
 	}
+	
+	public static void main(String[] args) { 
+		IList<Integer> MTL = new MTLIST<Integer>();
+		IList<Integer> NMTL1 = MTL.cons(1).cons(2).cons(3);
+		IStack<Integer> emp1 = new EmptyStack<Integer>();
+		myReverse.reverse(NMTL1, emp1);
+	}
+	
 
 }
